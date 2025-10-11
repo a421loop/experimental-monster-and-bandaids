@@ -36,83 +36,76 @@
             z-index: 2;
         }
 
-        .text-star {
+        .text-card {
             position: absolute;
-            width: 200px;
-            height: 200px;
+            width: 180px;
+            height: 120px;
             cursor: pointer;
-            transition: opacity 0.6s ease, transform 0.3s ease;
-            color: white;
-            font-size: 14px;
+            transition: opacity 0.5s ease, transform 0.3s ease;
+            color: #8B0000;
+            font-size: 13px;
             text-align: center;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 45px 25px;
+            padding: 20px 15px;
             line-height: 1.4;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            background: #F5E6D3;
+            border: 3px solid #DC143C;
+            text-shadow: none;
         }
 
-        .text-star:hover {
-            transform: scale(1.15) rotate(10deg);
-        }
-
-        .text-star.clicked {
-            opacity: 0;
-            pointer-events: none;
-            transform: scale(0.3) rotate(360deg);
-        }
-
-        /* Star shape using clip-path */
-        .text-star::before {
+        /* Sunburst pattern background */
+        .text-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            background: 
+                repeating-conic-gradient(
+                    from 0deg at 50% 50%,
+                    #DC143C 0deg 8deg,
+                    #F5E6D3 8deg 16deg
+                );
+            opacity: 0.15;
+            border-radius: 5px;
             z-index: -1;
         }
 
-        .text-star::before {
-            background: #DC143C;
+        .text-card:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+        }
+
+        .text-card.clicked {
+            opacity: 0;
+            pointer-events: none;
+            transform: scale(0.5) rotate(180deg);
+        }
+
+        .text-card.empty {
+            background: rgba(220, 20, 60, 0.15);
+            border: 3px dashed #DC143C;
+        }
+
+        .text-card.empty::before {
+            opacity: 0.3;
         }
 
         .strikethrough {
             text-decoration: line-through;
         }
 
-        /* Different red shades for variety */
-        .text-star:nth-child(1)::before { background: #DC143C; }
-        .text-star:nth-child(2)::before { background: #C41E3A; }
-        .text-star:nth-child(3)::before { background: #E0115F; }
-        .text-star:nth-child(4)::before { background: #D70040; }
-        .text-star:nth-child(5)::before { background: #B22222; }
-        .text-star:nth-child(6)::before { background: #CD5C5C; }
-        .text-star:nth-child(7)::before { background: #DC143C; }
-        .text-star:nth-child(8)::before { background: #C41E3A; }
-        .text-star:nth-child(9)::before { background: #E0115F; }
-        .text-star:nth-child(10)::before { background: #D70040; }
-        .text-star:nth-child(11)::before { background: #B22222; }
-        .text-star:nth-child(12)::before { background: #CD5C5C; }
-        .text-star:nth-child(13)::before { background: #DC143C; }
-        .text-star:nth-child(14)::before { background: #C41E3A; }
-        .text-star:nth-child(15)::before { background: #E0115F; }
-        .text-star:nth-child(16)::before { background: #D70040; }
-
-        /* Empty stars - transparent with just outline */
-        .text-star.empty::before {
-            background: transparent;
-            border: 2px solid rgba(220, 20, 60, 0.4);
-        }
-
         @media (max-width: 768px) {
-            .text-star {
+            .text-card {
                 width: 140px;
-                height: 140px;
+                height: 100px;
                 font-size: 11px;
-                padding: 30px 15px;
+                padding: 15px 10px;
             }
         }
     </style>
@@ -123,41 +116,115 @@
     </video>
 
     <div id="text-overlay">
-        <div class="text-star" style="top: 5%; left: 10%;">Conclusions from a <span class="strikethrough">healthy</span> bender oct break</div>
-        <div class="text-star" style="top: 8%; left: 45%;">Perfectionism is the only way i know how to work</div>
-        <div class="text-star" style="top: 12%; left: 75%;">and i never like anything after its done so jokes on me</div>
-        <div class="text-star empty" style="top: 25%; left: 5%;"></div>
-        <div class="text-star" style="top: 30%; left: 30%;">Monster is basically a nice bandaid for any depressive episode</div>
-        <div class="text-star empty" style="top: 28%; left: 65%;"></div>
-        <div class="text-star" style="top: 35%; left: 85%;">I hate the type of "game design" we are doing</div>
-        <div class="text-star" style="top: 50%; left: 15%;">where its just making presentations just because we can</div>
-        <div class="text-star empty" style="top: 52%; left: 50%;"></div>
-        <div class="text-star" style="top: 55%; left: 72%;">If i leave a thing for more than a day</div>
-        <div class="text-star empty" style="top: 68%; left: 8%;"></div>
-        <div class="text-star" style="top: 70%; left: 40%;">I come with a different idea of what it ought to be</div>
-        <div class="text-star" style="top: 72%; left: 75%;">and consider ALL the work i did before useless</div>
-        <div class="text-star empty" style="top: 85%; left: 25%;"></div>
-        <div class="text-star" style="top: 88%; left: 55%;">I think it is possible for you to be perfectly happy and depressed simultaneously</div>
-        <div class="text-star empty" style="top: 90%; left: 90%;"></div>
+        <div class="text-card">Conclusions from a <span class="strikethrough">healthy</span> bender oct break</div>
+        <div class="text-card">Perfectionism is the only way i know how to work</div>
+        <div class="text-card">and i never like anything after its done so jokes on me</div>
+        <div class="text-card">Monster is basically a nice bandaid for any depressive episode</div>
+        <div class="text-card">I hate the type of "game design" we are doing</div>
+        <div class="text-card">where its just making presentations just because we can</div>
+        <div class="text-card">If i leave a thing for more than a day</div>
+        <div class="text-card">I come with a different idea of what it ought to be</div>
+        <div class="text-card">and consider ALL the work i did before useless</div>
+        <div class="text-card">I think it is possible for you to be perfectly happy and depressed simultaneously</div>
+        <div class="text-card empty"></div>
+        <div class="text-card empty"></div>
+        <div class="text-card empty"></div>
+        <div class="text-card empty"></div>
+        <div class="text-card empty"></div>
     </div>
 
     <script>
         const video = document.getElementById('video-background');
-        const textStars = document.querySelectorAll('.text-star');
+        const textCards = document.querySelectorAll('.text-card');
         
         let audioEnabled = false;
 
-        // Click handler for each text star
-        textStars.forEach(star => {
-            star.addEventListener('click', function() {
+        // Function to get random position that doesn't overlap with existing cards
+        function getRandomPosition(cardWidth, cardHeight, existingPositions) {
+            const maxAttempts = 50;
+            const margin = 30; // Minimum space between cards
+            
+            for (let i = 0; i < maxAttempts; i++) {
+                const x = Math.random() * (window.innerWidth - cardWidth);
+                const y = Math.random() * (window.innerHeight - cardHeight);
+                
+                // Check if this position overlaps with any existing cards
+                let overlaps = false;
+                for (let pos of existingPositions) {
+                    const dx = Math.abs(x - pos.x);
+                    const dy = Math.abs(y - pos.y);
+                    
+                    if (dx < (cardWidth + margin) && dy < (cardHeight + margin)) {
+                        overlaps = true;
+                        break;
+                    }
+                }
+                
+                if (!overlaps) {
+                    return { x, y };
+                }
+            }
+            
+            // If we couldn't find a non-overlapping position, return a random one anyway
+            return {
+                x: Math.random() * (window.innerWidth - cardWidth),
+                y: Math.random() * (window.innerHeight - cardHeight)
+            };
+        }
+
+        // Position all cards randomly without overlapping
+        function positionCards() {
+            const existingPositions = [];
+            
+            textCards.forEach(card => {
+                const cardWidth = card.offsetWidth;
+                const cardHeight = card.offsetHeight;
+                const pos = getRandomPosition(cardWidth, cardHeight, existingPositions);
+                
+                card.style.left = pos.x + 'px';
+                card.style.top = pos.y + 'px';
+                
+                existingPositions.push(pos);
+            });
+        }
+
+        // Initial positioning
+        positionCards();
+
+        // Click handler for each card
+        textCards.forEach(card => {
+            card.addEventListener('click', function() {
                 // Unmute video on first click
                 if (!audioEnabled) {
                     video.muted = false;
                     audioEnabled = true;
                 }
+                
                 this.classList.add('clicked');
+                
+                // Reappear after 2 seconds in a new random position
+                setTimeout(() => {
+                    this.classList.remove('clicked');
+                    
+                    // Get new random position
+                    const cardWidth = this.offsetWidth;
+                    const cardHeight = this.offsetHeight;
+                    const existingPositions = Array.from(textCards)
+                        .filter(c => c !== this && !c.classList.contains('clicked'))
+                        .map(c => ({
+                            x: parseFloat(c.style.left),
+                            y: parseFloat(c.style.top)
+                        }));
+                    
+                    const pos = getRandomPosition(cardWidth, cardHeight, existingPositions);
+                    this.style.left = pos.x + 'px';
+                    this.style.top = pos.y + 'px';
+                }, 2000);
             });
         });
+
+        // Reposition cards on window resize
+        window.addEventListener('resize', positionCards);
     </script>
 </body>
 </html>
