@@ -7,4 +7,5 @@ Taken on a s24 ultra, I just was thinking about things in them and considered ed
 Either thoughts I was thinking, things someone had recently said to me or things I was readings this october break
 
 
-- made with an ultra strawberry dreams flavour, smugged eye makeup and a need to feel like myself again
+
+♡ made with a pink monster, smugged eye makeup and a need to feel like myself again
