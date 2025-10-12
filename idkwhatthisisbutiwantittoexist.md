@@ -4,4 +4,4 @@ This project came out of a afternoon where I was distracted in a connective, lan
 Taken on a s24 ultra, I just was thinking about things in them and considered editing into a cinematic thing but the medium felt inadequate for the moment.
 
 ### the cards?
-Either things I was thinking about, things someone had recently said to me or things I was readings this october break
+Either thoughts I was thinking, things someone had recently said to me or things I was readings this october break
